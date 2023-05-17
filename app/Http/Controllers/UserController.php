@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function generateAttachmentUrl(int $userId)
     {
-        return config('app.url').`user-information/{$userId}`;
+        return config('app.url')."user-information/{$userId}";
     }
 
     public function createAttachment(User $user, string $attachmentUrl)
