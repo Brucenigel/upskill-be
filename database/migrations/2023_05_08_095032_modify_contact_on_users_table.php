@@ -10,14 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('address');
-            $table->integer('contact');
-            $table->date('birthdate');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('contact')->change();
         });
     }
 
@@ -26,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('contact')->change();
+        });
     }
 };
